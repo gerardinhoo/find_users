@@ -9,6 +9,9 @@ class Users extends Component {
           <UserItem user={user} />
         ))}
       </div>
+      // <div style={userStyle}>
+      //   {this.props.users.map(user => console.log(<UserItem user={user} />))}
+      // </div>
     );
   }
 }

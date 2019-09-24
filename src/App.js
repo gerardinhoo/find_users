@@ -13,6 +13,7 @@ class App extends Component {
     this.setState({ loading: true });
     const res = await axios.get("https://randomuser.me/api/?results=10");
     this.setState({ users: res.data.results, loading: false });
+    console.log(res.data);
   }
   render() {
     return (

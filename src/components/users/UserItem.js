@@ -12,13 +12,6 @@ const UserItem = ({ user: { name } }) => {
         alt="pic"
         style={{ width: "60px" }}
       />
-
-      {/* <img
-        src={user_image}
-        className="round-img"
-        alt=""
-        style={{ width: "60px" }}
-      /> */}
     </div>
   );
 };
