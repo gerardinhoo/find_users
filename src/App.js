@@ -11,10 +11,8 @@ class App extends Component {
   };
   async componentDidMount() {
     this.setState({ loading: true });
-    const res = await axios.get("https://randomuser.me/api/?results=30");
+    const res = await axios.get("https://randomuser.me/api/?results=10");
     this.setState({ users: res.data.results, loading: false });
-
-    // console.log(res.data.results);
   }
   render() {
     return (

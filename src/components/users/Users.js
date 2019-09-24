@@ -6,7 +6,7 @@ class Users extends Component {
     return (
       <div style={userStyle}>
         {this.props.users.map(user => (
-          <UserItem key={user.id} user={user} />
+          <UserItem user={user} />
         ))}
       </div>
     );
