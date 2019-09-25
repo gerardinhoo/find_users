@@ -10,7 +10,6 @@ const UserItem = ({ user: { name, picture, nat } }) => {
         style={{ width: "60px" }}
       />
       <h3>
-        <span className="profile-info">Full Name:</span>
         {name.first.toUpperCase()} {name.last.toUpperCase()}
       </h3>
       <span className="profile-info">Nationality:</span> {nat}
