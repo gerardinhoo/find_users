@@ -1,17 +1,19 @@
 import React from "react";
 
-const UserItem = ({ user: { name } }) => {
+const UserItem = ({ user: { name, picture, nat } }) => {
   return (
     <div className="card text-center">
-      <h3>
-        {name.title} {name.first} {name.last}
-      </h3>
       <img
-        src={name.thumbnail}
+        src={picture.thumbnail}
         className="round-img"
         alt="pic"
         style={{ width: "60px" }}
       />
+      <h3>
+        <span className="profile-info">Full Name:</span>
+        {name.first.toUpperCase()} {name.last.toUpperCase()}
+      </h3>
+      <span className="profile-info">Nationality:</span> {nat}
     </div>
   );
 };

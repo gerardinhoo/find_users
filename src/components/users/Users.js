@@ -1,20 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import UserItem from "./UserItem";
+import Spinner from "../layout/Spinner";
 
-class Users extends Component {
-  render() {
+const Users = ({ loading, users }) => {
+  if (loading) {
+    return <Spinner />;
+  } else {
     return (
       <div style={userStyle}>
-        {this.props.users.map(user => (
-          <UserItem user={user} />
+        {users.map((user, index) => (
+          <UserItem key={index} user={user} />
         ))}
       </div>
-      // <div style={userStyle}>
-      //   {this.props.users.map(user => console.log(<UserItem user={user} />))}
-      // </div>
     );
   }
-}
+};
 
 const userStyle = {
   display: "grid",

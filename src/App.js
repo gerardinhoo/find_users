@@ -11,14 +11,14 @@ class App extends Component {
   };
   async componentDidMount() {
     this.setState({ loading: true });
-    const res = await axios.get("https://randomuser.me/api/?results=10");
+    const res = await axios.get("https://randomuser.me/api/?results=12");
     this.setState({ users: res.data.results, loading: false });
     console.log(res.data);
   }
   render() {
     return (
       <div>
-        <Navbar title="Users" icon="fas fa-users" />
+        <Navbar title="Random Users Finder" icon="fas fa-users" />
         <div className="container">
           <Users loading={this.state.loading} users={this.state.users} />
         </div>

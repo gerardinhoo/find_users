@@ -412,3 +412,7 @@ table th {
     justify-content: center;
   }
 }
+
+.profile-info {
+  color: #28a745;
+}
