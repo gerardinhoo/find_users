@@ -13,14 +13,24 @@ const App = () => {
   const [loading, setLoading] = useState(false)
 
 
+  useEffect(() => {
+    async(() => {
+      setLoading(true)
+      const res = await axios.get("https://randomuser.me/api/?results=12");
+      setUsers(res.data.results)
+      setLoading(false)
+      console.log(res.data);
+    })
+  })
 
-  async componentDidMount() {
-    setLoading(true)
-    const res = await axios.get("https://randomuser.me/api/?results=12");
-    setUsers(res.data.results)
-    setLoading(false)
-    console.log(res.data);
-  }
+
+  // async componentDidMount() {
+  //   setLoading(true)
+  //   const res = await axios.get("https://randomuser.me/api/?results=12");
+  //   setUsers(res.data.results)
+  //   setLoading(false)
+  //   console.log(res.data);
+  // }
 
     return (
       <Router>
