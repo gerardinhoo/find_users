@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
@@ -7,19 +7,21 @@ import About from "./components/pages/About";
 
 import axios from "axios";
 
-class App extends Component {
-  state = {
-    users: [],
-    loading: false
-  };
+const App = () => {
+
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(false)
+
+
+
   async componentDidMount() {
-    this.setState({ loading: true });
+    setLoading(true)
     const res = await axios.get("https://randomuser.me/api/?results=12");
-    this.setState({ users: res.data.results, loading: false });
+    setUsers(res.data.results)
+    setLoading(false)
     console.log(res.data);
   }
 
-  render() {
     return (
       <Router>
         <div>
@@ -32,8 +34,8 @@ class App extends Component {
                 render={props => (
                   <Fragment>
                     <Users
-                      loading={this.state.loading}
-                      users={this.state.users}
+                      loading={loading}
+                      users={users}
                     />
                   </Fragment>
                 )}
@@ -45,6 +47,6 @@ class App extends Component {
       </Router>
     );
   }
-}
+
 
 export default App;
