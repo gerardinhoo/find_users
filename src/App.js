@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users";
-import Search from "./components/users/Search";
+import About from "./components/pages/About";
 
 import axios from "axios";
 
@@ -17,15 +18,31 @@ class App extends Component {
     this.setState({ users: res.data.results, loading: false });
     console.log(res.data);
   }
+
   render() {
     return (
-      <div>
-        <Navbar title="Random Users Finder" icon="fas fa-users" />
-        <div className="container">
-          <Search />
-          <Users loading={this.state.loading} users={this.state.users} />
+      <Router>
+        <div>
+          <Navbar title="Random Users Finder" icon="fas fa-users" />
+          <div className="container">
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={props => (
+                  <Fragment>
+                    <Users
+                      loading={this.state.loading}
+                      users={this.state.users}
+                    />
+                  </Fragment>
+                )}
+              />
+              <Route exact path="/about" component={About} />
+            </Switch>
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }
